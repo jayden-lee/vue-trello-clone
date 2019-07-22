@@ -20,3 +20,8 @@ const request = (method, url, data) => {
   })
 }
 
+export const board = {
+  fetch() {
+    return request('get', '/boards')
+  }
+}
