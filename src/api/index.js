@@ -12,16 +12,28 @@ const request = (method, url, data) => {
     method,
     url: DOMAIN + url,
     data
-  }).then(result => result.data)
+  }).then(result => result.data )
     .catch(result => {
-      const { status } = result.response
-      if (status === UNAUTHORIZED) return onUnauthorized()
-      throw Error(result)
+      const {status} = result.response
+      if (status === UNAUTHORIZED) onUnauthorized()
+      throw result.response
   })
 }
 
+export const setAuthInHeader = token => {
+  axios.defaults.headers.common['Authorization'] = token ? `Bearer ${token}` : null;
+}
+
+// 대시보드 API
 export const board = {
   fetch() {
     return request('get', '/boards')
+  }
+}
+
+// 인증 API
+export const auth = {
+  login(email, password) {
+    return request('post', '/login', {email, password})
   }
 }
