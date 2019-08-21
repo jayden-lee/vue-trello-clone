@@ -12,18 +12,19 @@
         <a class="new-board-btn" href @click.prevent="addBoard">Create new board...</a>
       </div>
     </div>
-      <Modal></Modal>
+    <AddBoard v-if="isAddBoard" @close="isAddBoard=false" @submit="onAddBoard"/>
   </div>
 </template>
 
 <script>
 import { board } from "../api";
-import Modal from "./Modal.vue";
+import AddBoard from "./Addboard.vue";
 export default {
   data() {
     return {
       loading: false,
-      boards: []
+      boards: [],
+      isAddBoard: false
     };
   },
   created() {
@@ -35,7 +36,7 @@ export default {
     })
   },
   components: {
-    Modal
+    AddBoard
   },
   methods: {
     fetchData() {
@@ -50,7 +51,11 @@ export default {
         });
     },
     addBoard() {
-      console.log('addBoard()')
+      this.isAddBoard = true;
+    },
+    onAddBoard(title) {
+      board.create(title)
+        .then(() => this.fetchData())
     }
   }
 };

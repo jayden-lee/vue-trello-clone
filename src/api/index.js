@@ -28,6 +28,9 @@ export const setAuthInHeader = token => {
 export const board = {
   fetch() {
     return request('get', '/boards')
+  },
+  create(title) {
+    return request('post', '/boards', {title})
   }
 }
 
