@@ -9,24 +9,31 @@
         </router-link>
       </div>
       <div class="board-item board-item-new">
-        <a class="new-board-btn" href @click.prevent="addBoard">Create new board...</a>
+        <a class="new-board-btn" href @click.prevent="SET_IS_ADD_BOARD(true)">
+          Create new board...
+        </a>
       </div>
     </div>
-    <AddBoard v-if="isAddBoard" @close="isAddBoard=false" @submit="onAddBoard"/>
+    <AddBoard v-if="isAddBoard" @submit="onAddBoard"/>
   </div>
 </template>
 
 <script>
-import { board } from "../api";
-import AddBoard from "./Addboard.vue";
+import { board } from '../api'
+import AddBoard from './Addboard.vue'
+import {mapState, mapMutations} from 'vuex'
+
 export default {
   data() {
     return {
       loading: false,
-      boards: [],
-      isAddBoard: false
+      boards: []
     };
   },
+  computed: {
+    ...mapState([
+    'isAddBoard'
+  ])},
   created() {
     this.fetchData();
   },
@@ -39,6 +46,9 @@ export default {
     AddBoard
   },
   methods: {
+    ...mapMutations([
+      'SET_IS_ADD_BOARD'
+    ]),
     fetchData() {
       this.loading = true;
       board
@@ -49,9 +59,6 @@ export default {
         .finally(() => {
           this.loading = false;
         });
-    },
-    addBoard() {
-      this.isAddBoard = true;
     },
     onAddBoard(title) {
       board.create(title)
