@@ -15,6 +15,8 @@
 - [ ] 카드 상세 조회 기능 (모달창)
 - [ ] 리스트 이동
 
+![Vuello](https://user-images.githubusercontent.com/43853352/63561746-ff90f600-c595-11e9-8e46-a04998076158.png)
+
 ## Clinet Build Setup
 
 ``` bash
