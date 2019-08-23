@@ -9,13 +9,17 @@
 - [x] 보드 목록 조회 기능
 - [x] 보드 생성 기능 (새로 생성한 보드 화면으로 이동)
 - [x] 보드 조회 기능 (Todo, Doing, Done 리스트 조회)
-- [ ] 카드 생성 기능
+- [x] 카드 생성 기능
 - [ ] 보드 수정 기능
 - [ ] 카드 수정 기능
 - [ ] 카드 상세 조회 기능 (모달창)
 - [ ] 리스트 이동
 
+## Board
 ![Vuello](https://user-images.githubusercontent.com/43853352/63561746-ff90f600-c595-11e9-8e46-a04998076158.png)
+
+## Card
+![Card](https://user-images.githubusercontent.com/43853352/63597089-9e9a0a00-c5f7-11e9-9c64-1c33908d1d4d.png)
 
 ## Clinet Build Setup
 
