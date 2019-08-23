@@ -5,7 +5,7 @@
     </div>
     <div class="card-list" :data-list-id="data.id">
       <CardItem v-for="card in data.cards" :key="`${card.id}`" :data="card"/>
-     </div>
+    </div>
 
     <div v-if="isAddCard">
       <AddCard :list-id="data.id" @close="isAddCard=false"/>
