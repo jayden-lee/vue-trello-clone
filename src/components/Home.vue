@@ -27,7 +27,7 @@ export default {
   data() {
     return {
       loading: false
-    };
+    }
   },
   computed: {
     ...mapState({
@@ -36,7 +36,7 @@ export default {
     })
   },
   created() {
-    this.fetchData();
+    this.fetchData()
   },
   updated() {
     this.$refs.boardItem.forEach(el => {
