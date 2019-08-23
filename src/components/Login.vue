@@ -20,8 +20,8 @@
 </template>
 
 <script>
-import { auth, setAuthInHeader } from "../api";
 import { mapActions } from 'vuex'
+
 export default {
   data() {
     return {
@@ -46,10 +46,10 @@ export default {
     onSubmit() {
       this.LOGIN({email : this.email, password : this.password })
         .then(data => {
-          this.$router.push(this.rPath);
+          this.$router.push(this.rPath)
         })
         .catch(err => {
-          this.error = err.data.error;
+          this.error = err.data.error
         })
     }
   }
