@@ -55,3 +55,7 @@ npm run dev
 # build for production with minification
 npm run build
 ```
+
+## 테스트 계정
+- Email : test@test.com
+- Password : 123123
