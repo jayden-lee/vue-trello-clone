@@ -26,8 +26,8 @@ export const setAuthInHeader = token => {
 
 // 대시보드 API
 export const board = {
-  fetch() {
-    return request('get', '/boards')
+  fetch(id) {
+    return id ? request('get', `/boards/${id}`) : request('get', '/boards')
   },
   create(title) {
     return request('post', '/boards', {title})
